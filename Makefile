@@ -60,7 +60,7 @@ multiverse:
 	cp $(SOURCES_HOST) $(SOURCES_MULTIVERSE)
 	sed -i "/^deb/ s/\b$(SERIES_HOST)/$(SERIES)/" $(SOURCES_MULTIVERSE)
 	sed -i "/^deb/ s/$$/ multiverse/" $(SOURCES_MULTIVERSE)
-	apt-get update \
+	sudo apt-get update \
 		-o Dir::Etc::sourcelist=$(SOURCES_MULTIVERSE) \
 		-o APT::Architecture=$(ARCH) 2>/dev/null
 
